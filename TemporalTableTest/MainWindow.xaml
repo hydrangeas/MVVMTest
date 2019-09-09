@@ -4,39 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TemporalTableTest"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460" Width="440" ResizeMode="NoResize">
+        Title="MainWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Grid>
-        <ListBox HorizontalAlignment="Left"
-                 Height="401"
-                 Margin="10,10,0,0"
-                 VerticalAlignment="Top"
+        <StackPanel>
+            <Button HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="10,10,0,0"
+                    Width="75"
+                    >
+                <WrapPanel>
+                    <fa:FontAwesome Icon="Plus" Margin="0,3,8,0"/>
+                    <TextBlock>New</TextBlock>
+                </WrapPanel>
+            </Button>
+            <ListBox HorizontalAlignment="Left"
+                 Margin="10,10,10,10"
                  Width="200"
+                 Height="200"
                  />
-        <TextBox HorizontalAlignment="Left"
-                 Height="23" 
-                 Margin="215,10,0,0"
-                 TextWrapping="Wrap"
-                 Text="TextBox" 
-                 VerticalAlignment="Top" 
-                 Width="200"
-                 />
-        <TextBox HorizontalAlignment="Left"
-                 Height="180"
-                 Margin="215,38,0,0"
-                 TextWrapping="Wrap" 
-                 Text="TextBox"
-                 VerticalAlignment="Top"
-                 Width="200"
-                 />
-        <ListBox HorizontalAlignment="Left"
-                 Height="150"
-                 Margin="215,261,0,0"
-                 VerticalAlignment="Top"
-                 Width="200"
-                 />
-        <Button Content="Save" HorizontalAlignment="Left" Margin="340,223,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="260,223,0,0" VerticalAlignment="Top" Width="75"/>
-
+        </StackPanel>
     </Grid>
 </Window>
