@@ -14,6 +14,9 @@
         <DataTemplate x:Key="PostListView" DataType="{x:Type local:MainWindowViewModel}">
             <local:PostList />
         </DataTemplate>
+        <DataTemplate x:Key="PostEditView" DataType="{x:Type local:MainWindowViewModel}">
+            <local:PostList />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -21,6 +24,11 @@
             <ContentControl.Style>
                 <Style TargetType="{x:Type ContentControl}">
                     <Setter Property="ContentTemplate" Value="{StaticResource PostListView}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ViewType}" Value="1">
+                            <Setter Property="ContentTemplate" Value="{StaticResource PostEditView}" />
+                        </DataTrigger>
+                    </Style.Triggers>
                 </Style>
             </ContentControl.Style>
         </ContentControl>
