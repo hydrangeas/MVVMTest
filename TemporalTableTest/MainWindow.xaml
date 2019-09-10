@@ -15,7 +15,7 @@
             <local:PostList />
         </DataTemplate>
         <DataTemplate x:Key="PostEditView" DataType="{x:Type local:MainWindowViewModel}">
-            <local:PostList />
+            <local:PostEdit />
         </DataTemplate>
     </Window.Resources>
 

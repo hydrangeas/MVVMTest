@@ -13,6 +13,7 @@
                     Margin="10,10,0,0"
                     Width="75"
                     Command="{Binding PostNewCommand}"
+                    CommandParameter="{Binding NewPostId}"
                     >
                 <WrapPanel>
                     <fa:FontAwesome Icon="Plus" Margin="0,3,8,0"/>
