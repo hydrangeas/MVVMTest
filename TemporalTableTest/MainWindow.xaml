@@ -7,6 +7,9 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="MainWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <StackPanel>
             <Button HorizontalAlignment="Left"
