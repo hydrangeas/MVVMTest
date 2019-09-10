@@ -10,23 +10,19 @@
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="PostListView" DataType="{x:Type local:MainWindowViewModel}">
+            <local:PostList />
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
-        <StackPanel>
-            <Button HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="10,10,0,0"
-                    Width="75"
-                    >
-                <WrapPanel>
-                    <fa:FontAwesome Icon="Plus" Margin="0,3,8,0"/>
-                    <TextBlock>New</TextBlock>
-                </WrapPanel>
-            </Button>
-            <ListBox HorizontalAlignment="Left"
-                 Margin="10,10,10,10"
-                 Width="200"
-                 Height="200"
-                 />
-        </StackPanel>
+        <ContentControl Content="{Binding }">
+            <ContentControl.Style>
+                <Style TargetType="{x:Type ContentControl}">
+                    <Setter Property="ContentTemplate" Value="{StaticResource PostListView}" />
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
     </Grid>
 </Window>
