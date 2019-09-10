@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="PostEdit.xaml.cs">
+      <DependentUpon>PostEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PostList.xaml.cs">
       <DependentUpon>PostList.xaml</DependentUpon>
     </Compile>
@@ -74,6 +78,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PostEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PostList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
