@@ -6,7 +6,8 @@ namespace TemporalTableTest
     {
         public MainWindowViewModel()
         {
-            PostNewCommand = new DelegateCommand<int>(SwitchPostView);
+            PostNewCommand = new DelegateCommand<int>(ToPostEditNew);
+            PostCancelCommand = new DelegateCommand<int>(ToPostList);
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace TemporalTableTest
         /// CommandParameter="-1"とすると、string->object->intでInvalidCastExceptionが
         /// 発生するので、回避。
         /// </summary>
-        public int NewPostId { get; } = -1;
+        public int PostId { get; set; } = -1;
 
         /// <summary>
         /// Postを新規作成する際のコマンド
@@ -57,16 +58,27 @@ namespace TemporalTableTest
         public ICommand PostNewCommand { get; private set; }
 
         /// <summary>
-        /// Postビューを切り替える
+        /// Post新規作成画面を表示する
         /// </summary>
         /// <param name="postId"></param>
-        private void SwitchPostView(int postId)
+        private void ToPostEditNew(int postId)
         {
-            if (postId == -1)
-            {
-                // -1は無条件に新規作成
-                ViewType = ViewTypes.PostEdit;
-            }
+            ViewType = ViewTypes.PostEdit;
         }
+
+        /// <summary>
+        /// Postを新規作成する際のコマンド
+        /// </summary>
+        public ICommand PostCancelCommand { get; private set; }
+
+        /// <summary>
+        /// Post一覧を表示する
+        /// </summary>
+        /// <param name="postId"></param>
+        private void ToPostList(int postId)
+        {
+            ViewType = ViewTypes.PostList;
+        }
+
     }
 }

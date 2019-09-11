@@ -24,6 +24,8 @@
                     VerticalAlignment="Center"
                     Margin="0,0,10,0"
                     Width="75"
+                    Command="{Binding PostCancelCommand}"
+                    CommandParameter="{Binding PostId}"
                     >
                     <TextBlock>Cancel</TextBlock>
                 </Button>
