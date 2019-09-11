@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace TemporalTableTest
 {
@@ -9,6 +10,8 @@ namespace TemporalTableTest
             PostNewCommand = new DelegateCommand<int>(ToPostEditNew);
             PostCancelCommand = new DelegateCommand<int>(ToPostList);
         }
+
+        public ObservableCollection<Post> Posts { get; set; }
 
         /// <summary>
         /// 表示画面タイプ
