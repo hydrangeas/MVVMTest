@@ -10,12 +10,13 @@
         <StackPanel>
             <TextBox Height="20"
                      TextWrapping="NoWrap"
-                     Text="TextBox"
+                     Text="{Binding Title}"
                      Width="200"
-                     Margin="10,10,10,0"/>
+                     Margin="10,10,10,0"
+                     />
             <TextBox Height="200"
                      TextWrapping="WrapWithOverflow"
-                     Text="TextBox"
+                     Text="{Binding Content}"
                      Width="200"
                      Margin="10,10,10,0"/>
             <WrapPanel HorizontalAlignment="Right"
@@ -32,6 +33,8 @@
                 <Button HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Width="75"
+                    Command="{Binding PostSubmitCommand}"
+                    CommandParameter="{Binding PostId}"
                     >
                     <TextBlock>Submit</TextBlock>
                 </Button>

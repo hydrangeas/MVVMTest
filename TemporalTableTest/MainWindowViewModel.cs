@@ -9,9 +9,10 @@ namespace TemporalTableTest
         {
             PostNewCommand = new DelegateCommand<int>(ToPostEditNew);
             PostCancelCommand = new DelegateCommand<int>(ToPostList);
+            PostSubmitCommand = new DelegateCommand<int>(Submit);
         }
 
-        public ObservableCollection<Post> Posts { get; set; }
+        public ObservableCollection<Post> Posts { get; set; } = new ObservableCollection<Post>();
 
         /// <summary>
         /// 表示画面タイプ
@@ -49,6 +50,15 @@ namespace TemporalTableTest
         }
 
         /// <summary>
+        /// Postのタイトル
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
+        /// Postの内容
+        /// </summary>
+        public string Content { get; set; }
+
+        /// <summary>
         /// Postを新規作成する際のId。 
         /// CommandParameter="-1"とすると、string->object->intでInvalidCastExceptionが
         /// 発生するので、回避。
@@ -83,5 +93,24 @@ namespace TemporalTableTest
             ViewType = ViewTypes.PostList;
         }
 
+        /// <summary>
+        /// Postを送信（追加）するコマンド
+        /// </summary>
+        public ICommand PostSubmitCommand { get; private set; }
+
+        /// <summary>
+        /// Postを追加する
+        /// </summary>
+        /// <param name="postId"></param>
+        private void Submit(int postId)
+        {
+            if (Title.Length == 0 || Content.Length == 0)
+                return;
+
+            Posts.Add(new Post { Title = Title, Content = Content });
+            ViewType = ViewTypes.PostList;
+
+            Title = Content = "";
+        }
     }
 }
